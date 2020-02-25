@@ -19,36 +19,18 @@
 				@endforeach
 			</p>
 		</div>
+		@auth
+			@if (Auth::user()->id === $article->user_id)
+			<p><a href="{{route('articles.edit',$article->id)}}" class="button is-link" style="background-color:#24a0ed;">Edit</a></p>
 
-		<p><a href="{{route('articles.edit',$article->id)}}" class="button is-link">Edit</a></p>
-
-		<form method="delete" action="">
-			<button type="submit" class="button is-link">Delete</button>
-		</form>
+			<form method="POST" action="/articles/{{$article->id}}">
+				@csrf
+				@method('DELETE')
+				<button type="submit" class="button is-link" style="background-color:red;">Delete</button>
+			</form>
+			@endif
+		@endauth
 	</div>
 </section>
-
-<!-- <div id="wrapper">
-	<div id="page" class="container">
-		<div id="content">
-			<div class="title">
-				<h2>{{$article->title}}</h2>
-				<span class="byline">{{$article->excerpt}}</span> </div>
-			<p><img src="/images/banner.jpg" alt="" class="image image-full" /> </p>
-			{{$article->body}}
-			<p>
-			@foreach ($article->tags as $tag)
-				<a href="{{ route('articles.edit',$tag->name) }}">{{ $tag->name }}</a>
-			@endforeach
-			</p>
-		</div>
-
-	</div>
-	<a href="{{route('articles.edit',$article->id)}}" class="button is-link">Edit</a>
-	
-	<form method="delete" action="">
-    <button type="submit" class="button is-link">Delete</button>
-	</form>
-</div> -->
 
 @endsection

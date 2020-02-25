@@ -30,3 +30,4 @@ Route::get('/articles/create','ArticlesController@create')->name('articles.creat
 Route::get('/articles/{article}','ArticlesController@show')->name('articles.show');
 Route::get('/articles/{article}/edit','ArticlesController@edit')->name('articles.edit');
 Route::put('/articles/{article}','ArticlesController@update');
+Route::delete('/articles/{article}','ArticlesController@delete')->name('articles.delete');

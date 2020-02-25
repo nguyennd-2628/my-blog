@@ -48,6 +48,7 @@
 			</header>
 
 			<a href="#menu" class="navPanelToggle"><span class="fa fa-bars"></span></a>
+			<!-- <a><span href="#menu" class="fa fa-bars navPanelToggle"></span></a> -->
 
         @yield('content')
 
